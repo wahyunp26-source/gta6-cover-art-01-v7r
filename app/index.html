@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VICE ROYALE — GTA 6 Cover Studio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="topbar">
+  <div class="brand"><span class="brand-mark">VR</span><span class="brand-name">VICE ROYALE</span><span class="brand-sub">GTA 6 Cover Studio</span></div>
+  <div class="top-actions">
+    <label class="size-label">Export size</label>
+    <div class="size-group" id="sizeGroup">
+      <button data-size="1920x1080" class="on">1920 × 1080</button>
+      <button data-size="1080x1080">1080 × 1080</button>
+      <button data-size="1080x1350">1080 × 1350</button>
+    </div>
+    <button id="downloadBtn" class="primary">⬇ Export PNG</button>
+  </div>
+</header>
+<main>
+  <aside id="controls">
+    <section>
+      <h2>1 · Photos</h2>
+      <p class="hint">Tap a panel to swap its photo. Upload your own, or use the samples.</p>
+      <div id="photoSlots"></div>
+      <label class="upload">+ Upload a photo <input type="file" id="fileInput" accept="image/*" hidden></label>
+    </section>
+    <section>
+      <h2>2 · Layout <span id="layoutName" class="val"></span></h2>
+      <div class="grid2" id="layoutGrid"></div>
+    </section>
+    <section>
+      <h2>3 · Grade <span id="gradeName" class="val"></span></h2>
+      <div class="grid2" id="gradeGrid"></div>
+      <label class="check"><input type="checkbox" id="inkToggle"> Painted / Ink outlines</label>
+    </section>
+    <section>
+      <h2>4 · Words</h2>
+      <label>Title <input id="inTitle" value="VICE ROYALE" maxlength="14"></label>
+      <label>Subtitle (script) <input id="inSub" value="one last score" maxlength="30"></label>
+      <label>Tagline <input id="inTag" value="SEVEN CREW · ONE COAST · NO WAY OUT" maxlength="48"></label>
+      <label>Press quote <input id="inQuote" value="ROYALTY HAS A PRICE" maxlength="48"></label>
+      <label>Quote source <input id="inSource" value="LEONIDA GAZETTE" maxlength="28"></label>
+      <label>Volume chip <input id="inVol" value="VOL. 01" maxlength="12"></label>
+    </section>
+    <section>
+      <h2>5 · Focus</h2>
+      <p class="hint">Pick a panel, then drag its photo or use the sliders. Faces stay in frame.</p>
+      <label>Zoom <input type="range" id="zoomRange" min="100" max="220" value="110"></label>
+      <label>Focus X <input type="range" id="fxRange" min="0" max="100" value="50"></label>
+      <label>Focus Y <input type="range" id="fyRange" min="0" max="100" value="42"></label>
+      <button id="autoFillBtn" class="ghost">↻ Auto-fill panels</button>
+    </section>
+  </aside>
+  <section id="stage">
+    <canvas id="cover" width="1920" height="1080"></canvas>
+    <p id="stageHint">Live preview — what you see is the PNG you export. Drag a photo on the cover to move it.</p>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

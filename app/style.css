@@ -1,0 +1,57 @@
+@font-face { font-family: "Vice Black"; src: url("fonts/NotoSans-Black.ttf") format("truetype"); font-weight: 900; }
+@font-face { font-family: "Vice Bold"; src: url("fonts/NotoSans-Bold.ttf") format("truetype"); font-weight: 700; }
+@font-face { font-family: "Vice Sans"; src: url("fonts/NotoSans-Regular.ttf") format("truetype"); font-weight: 400; }
+@font-face { font-family: "Vice Script"; src: url("fonts/NotoSerif-BoldItalic.ttf") format("truetype"); font-weight: 700; font-style: italic; }
+
+:root {
+  --bg: #160a1e; --panel: #221128; --panel2: #2c1734; --line: #4a2b57;
+  --ink: #f6ead9; --muted: #c9a8c9; --pink: #ff5da2; --gold: #ffc93c;
+  --teal: #19c2b8; --accent: #ff7a1a;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: "Vice Sans", system-ui, sans-serif; }
+#topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 18px; background: linear-gradient(90deg, #2b0f3a, #4a1040 55%, #7a1e3f); border-bottom: 2px solid var(--gold); }
+.brand { display: flex; align-items: baseline; gap: 10px; }
+.brand-mark { font-family: "Vice Black", sans-serif; font-size: 22px; color: #1a0b22; background: linear-gradient(180deg, #ffe45e, #ff7a1a 55%, #ff2e88); padding: 2px 8px; border-radius: 4px; letter-spacing: 1px; }
+.brand-name { font-family: "Vice Black", sans-serif; font-size: 22px; letter-spacing: 2px; }
+.brand-sub { color: var(--gold); font-size: 12px; letter-spacing: 1px; }
+.top-actions { display: flex; align-items: center; gap: 10px; }
+.size-label { font-size: 12px; color: var(--muted); }
+.size-group { display: flex; gap: 4px; }
+.size-group button, .ghost { background: var(--panel2); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; cursor: pointer; font-size: 13px; }
+.size-group button.on { background: var(--pink); color: #1a0b22; border-color: var(--pink); font-weight: 700; }
+.primary { background: linear-gradient(180deg, #ffe45e, #ff7a1a); color: #1a0b22; border: 0; border-radius: 6px; padding: 8px 14px; font-weight: 700; cursor: pointer; font-size: 14px; }
+main { display: flex; gap: 0; min-height: calc(100vh - 57px); }
+#controls { width: 300px; flex: none; background: var(--panel); border-right: 1px solid var(--line); padding: 14px; overflow-y: auto; }
+#controls section { margin-bottom: 20px; }
+#controls h2 { font-family: "Vice Bold", sans-serif; font-size: 14px; letter-spacing: 1px; margin: 0 0 8px; color: var(--gold); }
+#controls h2 .val { color: var(--pink); font-size: 12px; }
+.hint { font-size: 12px; color: var(--muted); margin: 0 0 8px; line-height: 1.45; }
+#photoSlots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 8px; }
+.slot { position: relative; aspect-ratio: 1; border: 2px solid var(--line); border-radius: 6px; overflow: hidden; cursor: pointer; background: #000; padding: 0; }
+.slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.slot span { position: absolute; left: 0; right: 0; bottom: 0; font-size: 9px; font-weight: 700; background: rgba(0,0,0,.72); color: #fff; padding: 2px 3px; text-align: center; letter-spacing: .5px; }
+.slot.on { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
+.upload { display: block; text-align: center; background: var(--panel2); border: 1px dashed var(--pink); color: var(--pink); border-radius: 6px; padding: 8px; cursor: pointer; font-size: 13px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.grid2 button { background: var(--panel2); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 8px 6px; cursor: pointer; font-size: 12px; text-align: left; }
+.grid2 button.on { border-color: var(--gold); background: #3a1c46; color: var(--gold); font-weight: 700; }
+.grid2 button small { display: block; color: var(--muted); font-size: 10px; margin-top: 2px; }
+.check { display: flex; gap: 6px; align-items: center; font-size: 13px; margin-top: 8px; cursor: pointer; }
+#controls label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+#controls label input[type="text"], #controls label input:not([type]) { display: block; width: 100%; margin-top: 3px; background: #160a1e; color: var(--ink); border: 1px solid var(--line); border-radius: 5px; padding: 7px 8px; font-size: 13px; }
+#controls input[type="range"] { width: 100%; accent-color: var(--pink); }
+.ghost { width: 100%; margin-top: 4px; }
+#stage { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 10px; padding: 18px; background: radial-gradient(1000px 500px at 50% 0%, #3a1747, var(--bg) 70%); }
+#cover { max-width: 100%; max-height: calc(100vh - 140px); width: auto; height: auto; border-radius: 4px; box-shadow: 0 18px 50px rgba(0,0,0,.6); cursor: grab; }
+#stageHint { font-size: 12px; color: var(--muted); margin: 0; }
+/* Cover-only mode: used for screenshots of the exported cover. */
+body.cover-only #topbar, body.cover-only #controls, body.cover-only #stageHint { display: none; }
+body.cover-only main { min-height: 100vh; }
+body.cover-only #stage { padding: 0; background: #000; }
+body.cover-only #cover { max-width: 100vw; max-height: 100vh; border-radius: 0; box-shadow: none; }
+@media (max-width: 900px) {
+  main { flex-direction: column; }
+  #controls { width: 100%; border-right: 0; border-bottom: 1px solid var(--line); }
+  .brand-sub { display: none; }
+}
